@@ -1,0 +1,178 @@
+[ID: 1]
+Text: You wake up on the shore of a deserted island. The waves crash beside you, and your memory is foggy. You see a dense forest inland and a steep cliff nearby.
+Choices:
+- Enter the forest -> 2
+- Climb the cliff -> 3
+
+[ID: 2]
+Text: The forest is thick and damp. You hear rustling in the bushes. Something shiny catches your eye.
+Choices:
+- Investigate the shiny object -> 4
+- Follow the rustling sound -> 5
+
+[ID: 3]
+Text: You climb the cliff and see the vast ocean stretching endlessly. There's a broken flagpole and some fabric you could use to make a distress signal.
+Choices:
+- Create a distress signal -> 6
+- Head back down -> 1
+
+[ID: 4]
+Text: You find a small, rusty knife buried in the leaves. It might come in handy.
+Flags: has_knife
+Choices:
+- Proceed deeper into the forest -> 5
+
+[ID: 5]
+Text: A wild boar bursts from the bushes!
+Choices:
+- Run away -> 7
+- Fight with the knife | has_knife -> 8
+
+[ID: 6]
+Text: After several days, a helicopter notices your signal and rescues you. You are saved!
+End: GOOD_END
+
+[ID: 7]
+Text: You try to run, but you trip over a root. The boar charges and injures you badly.
+End: BAD_END
+
+[ID: 8]
+Text: You manage to fend off the boar with your knife. You're wounded, but alive. You now have boar meat.
+Flags: killed_boar
+Choices:
+- Search for shelter -> 9
+- Return to the beach -> 1
+
+[ID: 9]
+Text: You discover a small cave. It's dark, but dry. There are signs someone may have used it before.
+Choices:
+- Enter and investigate the cave -> 10
+- Mark it as shelter and move on -> 11
+
+[ID: 10]
+Text: Inside the cave, you find an old journal and fire pit. The journal contains sketches of strange symbols and a map of the island.
+Flags: has_journal
+Choices:
+- Study the journal -> 12
+- Ignore it and rest -> 13
+
+[ID: 11]
+Text: You find a freshwater stream nearby. You set up a basic shelter and start planning your next steps.
+Choices:
+- Hunt for more food -> 14
+- Search for signs of rescue -> 3
+- Revisit the cave | has_journal -> 10
+
+[ID: 12]
+Text: The journal reveals that you were part of a scientific expedition. The crash was caused by a failed experiment. You begin to regain your memories.
+Flags: remembered_past
+Choices:
+- Search the island for the hidden lab | has_journal -> 15
+- Try to build a raft and escape -> 16
+
+[ID: 13]
+Text: You wake up to the sound of footsteps. A shadow approaches the cave entrance. It's another survivor!
+Choices:
+- Call out to them -> 17
+- Hide silently -> 18
+
+[ID: 14]
+Text: While hunting, you fall into a pit trap. Someone—or something—is also on this island.
+Choices:
+- Use the knife to escape | has_knife -> 19
+- Try to climb out -> 20
+
+[ID: 15]
+Text: You follow the map to a hidden bunker. The door is locked. You need to recall the password.
+Choices:
+- Enter the password | discovered_truth -> 24
+- Search for clues nearby -> 23
+- Wander the perimeter -> 29
+
+[ID: 16]
+Text: You construct a raft and sail out. Days pass. You're eventually found by a cargo ship, but your memories never fully return.
+End: NEUTRAL_END
+
+[ID: 17]
+Text: The figure is a fellow researcher, also suffering from amnesia. You decide to share what you know and plan your survival together.
+Flags: has_ally
+Choices:
+- Explore the island together -> 25
+- Rest and recover in the shelter -> 13
+
+[ID: 18]
+Text: You remain hidden, but the figure passes by and leaves. You are alone once more.
+Choices:
+- Follow them secretly -> 17
+- Stay in the cave -> 13
+
+[ID: 19]
+Text: You cut through vines and pull yourself out of the pit. You survive.
+Flags: escaped_pit
+Choices:
+- Track who made the trap -> 21
+- Head back to shelter -> 11
+
+[ID: 20]
+Text: You try to climb but fall and injure yourself badly.
+End: BAD_END
+
+[ID: 21]
+Text: You follow strange tracks to a hidden clearing. A strange radio tower stands in the middle, humming faintly.
+Choices:
+- Investigate the tower | remembered_past -> 22
+- Avoid it and return -> 11
+
+[ID: 22]
+Text: You activate the tower and send a burst signal. A nearby console confirms: "Transmission Accepted. Evac Confirmed."
+End: HIDDEN_END
+
+[ID: 23]
+Text: You find a damaged console buried in the foliage. Booting it up reveals experiment logs.
+Flags: discovered_truth
+Choices:
+- Try the password from the logs on the main door -> 15
+
+[ID: 24]
+Text: The password works. You enter the lab and discover computers, vials, and a recording of your past self explaining the experiment.
+End: SECRET_END
+
+[ID: 25]
+Text: While exploring, your partner recalls something about a research cache hidden near the beach.
+Choices:
+- Investigate the beach cache -> 26
+- Insist on climbing the cliff again -> 3
+
+[ID: 26]
+Text: You dig near the beach and find a buried equipment case with an old tablet and tools.
+Flags: found_cache
+Choices:
+- Power on the tablet -> 27
+- Return to the cave with tools -> 10
+
+[ID: 27]
+Text: The tablet shows a message log of earlier survivors warning of dangerous experiments gone wrong. Your partner is shaken.
+Choices:
+- Keep searching for truth together -> 28
+- Suggest building a raft and escaping now -> 16
+
+[ID: 28]
+Text: You track down one of the old bunkers the logs mention and discover a storage room with personal files, including yours.
+Flags: final_revelation
+End: TRUTH_END
+
+[ID: 29]
+Text: You wander the perimeter and notice a glint in the sky. A drone hovers briefly before disappearing into the forest canopy.
+Choices:
+- Follow the drone through the woods -> 30
+- Return to the shelter -> 11
+
+[ID: 30]
+Text: You discover a hidden panel where the drone disappeared. There's a biometric scanner and a terminal requesting a login.
+Choices:
+- Attempt to login | has_ally -> 31
+- Leave it and go back -> 11
+
+[ID: 31]
+Text: Your identity is verified thanks to your companion. The panel opens and reveals communications equipment. You send a distress signal, and within hours, a team arrives to evacuate you both.
+End: ESCAPE_END
